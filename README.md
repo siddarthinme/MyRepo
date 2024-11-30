@@ -334,6 +334,188 @@ class BinarySearch {
 }
 ```
 
+Here are the answers to your Java interview questions:
+
 ---
 
-These solutions encompass a variety of concepts, including recursion, sorting, searching, exception handling, and mathematical problems.
+**115. Find the word count in a string using HashMap Collection:**
+
+```java
+package simplilearnJava;
+import java.util.HashMap;
+
+public class WordCount {
+    public static void main(String[] args) {
+        String str = "Hello World, Welcome to Simplilearn";
+        String[] split = str.split(" ");
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for (String word : split) {
+            map.put(word, map.getOrDefault(word, 0) + 1);
+        }
+        
+        System.out.println(map);
+    }
+}
+```
+
+**Expected Output:**
+```
+{Hello=1, World,=1, Welcome=1, to=1, Simplilearn=1}
+```
+
+---
+
+**116. Write a program to find the Second Highest number in an ArrayList:**
+
+```java
+package simplilearnJava;
+
+public class NextHighest {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 11, 12, 13, 14, 21, 22, 23, 24, 31, 32};
+        int high = Integer.MIN_VALUE;
+        int nextHigh = Integer.MIN_VALUE;
+
+        for (int num : array) {
+            if (num > high) {
+                nextHigh = high;
+                high = num;
+            } else if (num > nextHigh) {
+                nextHigh = num;
+            }
+        }
+
+        System.out.println("Second Highest is: " + nextHigh);
+        System.out.println("Highest Number is: " + high);
+    }
+}
+```
+
+**Expected Output:**
+```
+Second Highest is: 31
+Highest Number is: 32
+```
+
+---
+
+**114. Write a Program to remove duplicates in an ArrayList:**
+
+```java
+package simplilearnJava;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ArrayDuplicate {
+    public static void main(String[] args) {
+        List<Integer> num = new ArrayList<>();
+        num.add(1); num.add(2); num.add(3); num.add(4); num.add(5); num.add(6);
+        num.add(3); num.add(4); num.add(5); num.add(6);
+
+        System.out.println("Original ArrayList: " + num);
+
+        Set<Integer> set = new LinkedHashSet<>(num);  // Removes duplicates
+        num.clear();
+        num.addAll(set);
+
+        System.out.println("ArrayList without duplicates: " + num);
+    }
+}
+```
+
+**Expected Output:**
+```
+Original ArrayList: [1, 2, 3, 4, 5, 6, 3, 4, 5, 6]
+ArrayList without duplicates: [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+**111. How do we reverse a string?**
+
+```java
+public class StringReverse {
+    public static void main(String[] args) {
+        String str = "Simplilearn";
+        String reverse = new StringBuffer(str).reverse().toString();
+        System.out.printf("Original String: %s, Reversed String: %s", str, reverse);
+    }
+}
+```
+
+**Output:**
+```
+Original String: Simplilearn, Reversed String: nraelilpmiS
+```
+
+---
+
+**112. Write a program to find the square root of a number:**
+
+```java
+import java.util.Scanner;
+
+public class SRoot {
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Input a number to find square root: ");
+            double square = sc.nextDouble();
+            double squareRoot = Math.sqrt(square);
+            System.out.printf("The square root is: %f", squareRoot);
+        }
+    }
+}
+```
+
+**Expected Output:**
+```
+Input a number to find square root: 25
+The square root is: 5.000000
+```
+
+---
+
+**113. Write a program that detects the duplicate characters in a string:**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class FindDuplicate {
+    public static void main(String[] args) {
+        printDuplicateCharacters("Simplilearn");
+    }
+
+    public static void printDuplicateCharacters(String word) {
+        char[] characters = word.toCharArray();
+        Map<Character, Integer> charMap = new HashMap<>();
+
+        for (char ch : characters) {
+            charMap.put(ch, charMap.getOrDefault(ch, 0) + 1);
+        }
+
+        Set<Map.Entry<Character, Integer>> entrySet = charMap.entrySet();
+        System.out.printf("List of duplicate characters in String '%s':%n", word);
+
+        for (Map.Entry<Character, Integer> entry : entrySet) {
+            if (entry.getValue() > 1) {
+                System.out.printf("%s: %d%n", entry.getKey(), entry.getValue());
+            }
+        }
+    }
+}
+```
+
+**Expected Output:**
+```
+List of duplicate characters in String 'Simplilearn':
+i: 2
+l: 2
+```
+
+---
+
